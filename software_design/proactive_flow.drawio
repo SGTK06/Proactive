@@ -1,0 +1,67 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="-vQ9xZByRA17SAhtrF8R">
+    <mxGraphModel dx="1288" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;font&gt;Idea:&lt;/font&gt;&lt;div&gt;&lt;font&gt;1. Google Calender API Integration&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;2. Based on &lt;b&gt;time, scheduled tasks, and location &lt;/b&gt;plan the future&amp;nbsp; tasks in queue&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;3. Set Reminders for tasks&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;4. Factor in travel time to places based on Google Maps API&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;5. Prioritize based on rank, completion date, metrics&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;6.&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="440" x="195" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Procative - Intelligent Productivity System&amp;nbsp;" vertex="1">
+          <mxGeometry height="40" width="320" x="255" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-17" edge="1" parent="1" source="Ji16ZsBOBc6VfZi9SI0A-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ji16ZsBOBc6VfZi9SI0A-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Import personal schedule from google calendar" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-4" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Ji16ZsBOBc6VfZi9SI0A-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="20" y="450" as="sourcePoint" />
+            <mxPoint x="450" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-16" edge="1" parent="1" source="Ji16ZsBOBc6VfZi9SI0A-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ji16ZsBOBc6VfZi9SI0A-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Add tasks to priority queue" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-18" edge="1" parent="1" source="Ji16ZsBOBc6VfZi9SI0A-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ji16ZsBOBc6VfZi9SI0A-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="accomodate extra added tasks to google calendar" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-12" edge="1" parent="1" source="Ji16ZsBOBc6VfZi9SI0A-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ji16ZsBOBc6VfZi9SI0A-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Input tasks to be scheduled" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-11" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Ji16ZsBOBc6VfZi9SI0A-10" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="20" y="550" as="sourcePoint" />
+            <mxPoint x="80" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Dynamic Updation and re-prioritization of tasks, resolve conflict" vertex="1">
+          <mxGeometry height="60" width="120" x="700" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-14" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="20" y="649.63" as="sourcePoint" />
+            <mxPoint x="80" y="649.63" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-19" edge="1" parent="1" source="Ji16ZsBOBc6VfZi9SI0A-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ji16ZsBOBc6VfZi9SI0A-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ji16ZsBOBc6VfZi9SI0A-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Task-Scheduling&lt;div&gt;Engine&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="520" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
