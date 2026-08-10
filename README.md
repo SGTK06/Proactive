@@ -1,4 +1,4 @@
-## Proactive
+# Proactive
 
 **Intelligent Personal Productivity Tool**
 
