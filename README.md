@@ -16,3 +16,8 @@ Proactive factors work hours, commute time, and task priority and duration into 
 **Future Extensions:**
 
 1. Effort as a core metric to decide daily task allocation (Each day has tasks with same average difficulty to avoid overloading).
+2. Task input through Google Calendar or Proactive Web UI
+
+## Product
+
+The core management and smart task rescheduling logic is handled by the web app running dynamic rescheduling. For seamless integration and user experience, the web app will manage Google Calendar and schedule reminders through Google Calendar

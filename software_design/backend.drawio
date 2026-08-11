@@ -1,0 +1,172 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="m8jQ9dcqoqfiT1r3Galq">
+    <mxGraphModel dx="1212" dy="748" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KncAuTIywNobcfW0vnVe-55" parent="1" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#005F4B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.calendar;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Import schedule from Google Calendar" vertex="1">
+          <mxGeometry height="30" width="100" x="30" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-57" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="80" as="sourcePoint" />
+            <mxPoint x="220" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-58" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" value="&lt;div&gt;11:00 - 12:00 &amp;gt; T1&lt;/div&gt;&lt;div&gt;12:00 - 16:00 &amp;gt; T2&lt;/div&gt;&lt;div&gt;16:00 - 18:00 &amp;gt; T3&lt;/div&gt;&lt;div&gt;21:00 - 22:00 &amp;gt; T4&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="110" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-59" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Task List" vertex="1">
+          <mxGeometry height="30" width="60" x="260" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-61" parent="1" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.tasks;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="50" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-62" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Get Tasks to be scheduled as input" vertex="1">
+          <mxGeometry height="30" width="80" x="40" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-63" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="339.5" as="sourcePoint" />
+            <mxPoint x="220" y="339.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-65" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="280" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-66" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="260" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-67" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="300" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-68" edge="1" parent="1" source="KncAuTIywNobcfW0vnVe-65" style="endArrow=none;html=1;rounded=0;endFill=0;" target="KncAuTIywNobcfW0vnVe-66" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="270" y="310" as="sourcePoint" />
+            <mxPoint x="260" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-69" edge="1" parent="1" source="KncAuTIywNobcfW0vnVe-65" style="endArrow=none;html=1;rounded=0;endFill=0;" target="KncAuTIywNobcfW0vnVe-67" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="338" y="320" as="sourcePoint" />
+            <mxPoint x="320" y="344" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-70" edge="1" parent="1" source="KncAuTIywNobcfW0vnVe-66" style="endArrow=none;html=1;rounded=0;endFill=0;" target="KncAuTIywNobcfW0vnVe-72" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="278" y="390" as="sourcePoint" />
+            <mxPoint x="260" y="414" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-72" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="240" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-73" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="280" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-74" edge="1" parent="1" source="KncAuTIywNobcfW0vnVe-66" style="endArrow=none;html=1;rounded=0;endFill=0;" target="KncAuTIywNobcfW0vnVe-73" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="362" y="400" as="sourcePoint" />
+            <mxPoint x="350" y="422" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-75" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Order tasks in Priority Queue based on metrics in order:&lt;div&gt;1. Deadline&lt;/div&gt;&lt;div&gt;2. Priority Rank&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="220" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-76" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="360" y="339.65999999999997" as="sourcePoint" />
+            <mxPoint x="440" y="339.65999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-141" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="360" y="79.58" as="sourcePoint" />
+            <mxPoint x="440" y="79.58" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-143" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" value="&lt;ul&gt;&lt;li&gt;Time1&lt;/li&gt;&lt;li&gt;Time2&lt;/li&gt;&lt;li&gt;Time3&lt;/li&gt;&lt;li&gt;Time4&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="80" width="100" x="440" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-144" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Factoring in travel time based on office and home location determine possible schedule times" vertex="1">
+          <mxGeometry height="30" width="150" x="420" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-145" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="500" y="200" as="sourcePoint" />
+            <mxPoint x="500" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-146" parent="1" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.sae_serverless_app_engine;" value="" vertex="1">
+          <mxGeometry height="90" width="79.67" x="460" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-147" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="560" y="339.29" as="sourcePoint" />
+            <mxPoint x="640" y="339.29" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-148" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="500" y="414.40999999999997" as="sourcePoint" />
+            <mxPoint x="500" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-149" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Scheduling Engine" vertex="1">
+          <mxGeometry height="30" width="60" x="540" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-150" parent="1" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="120" x="660" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-151" parent="KncAuTIywNobcfW0vnVe-150" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-152" parent="KncAuTIywNobcfW0vnVe-151" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-153" parent="KncAuTIywNobcfW0vnVe-151" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=#007FFF;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="40" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-154" parent="KncAuTIywNobcfW0vnVe-151" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="80" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-167" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Suitable Time found and task allocated in single slot" vertex="1">
+          <mxGeometry height="30" width="150" x="645" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-168" parent="1" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="119.84" x="439.92" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-169" parent="KncAuTIywNobcfW0vnVe-168" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="119.84" as="geometry" />
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-170" parent="KncAuTIywNobcfW0vnVe-169" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=#00CC00;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-171" parent="KncAuTIywNobcfW0vnVe-169" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=#000000;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="40" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-172" parent="KncAuTIywNobcfW0vnVe-169" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=#00CC00;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="80" as="geometry">
+            <mxRectangle height="20" width="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KncAuTIywNobcfW0vnVe-173" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Suitable Time not found so task allocated in two slots" vertex="1">
+          <mxGeometry height="30" width="150" x="424.84000000000003" y="540" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
