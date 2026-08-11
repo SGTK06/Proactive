@@ -1,121 +1,119 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState, useEffect } from 'react'
 import './App.css'
 
+interface UserProfile {
+  name: string
+  email: string
+  picture?: string
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  // Load user session from localStorage
+  const [user, setUser] = useState<UserProfile | null>(() => {
+    const savedUser = localStorage.getItem('proactive_user_session')
+    return savedUser ? JSON.parse(savedUser) : null
+  })
+
+  // Parse Google OAuth redirect URL parameters on initial load
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const userParam = params.get('user')
+
+    if (userParam) {
+      try {
+        const parsedUser = JSON.parse(userParam)
+        setUser(parsedUser)
+        // Store authenticated session
+        localStorage.setItem('proactive_user_session', JSON.stringify(parsedUser))
+        // Clean URL query parameters
+        window.history.replaceState({}, document.title, window.location.pathname)
+      } catch (err) {
+        console.error('Failed to parse authenticated user profile:', err)
+      }
+    }
+  }, [])
+
+  // Trigger Google OAuth 2.0 via FastAPI backend endpoint
+  const handleGoogleLogin = () => {
+    window.location.href = 'http://localhost:8000/api/auth/google/login'
+  }
+
+  // Clear session on sign out
+  const handleLogout = () => {
+    localStorage.removeItem('proactive_user_session')
+    setUser(null)
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="whiteboard-container">
+      {/* Decorative Whiteboard Sticky Notes */}
+      <div className="sticky-note sticky-note-1">
+        📌 <strong>Today's Focus:</strong> Seamless productivity
+      </div>
+      <div className="sticky-note sticky-note-2">
+        💡 <strong>Proactive:</strong> Intelligent workspace
+      </div>
 
-      <div className="ticks"></div>
+      {/* Brand Header */}
+      <div className="app-badge">
+        <span className="badge-dot"></span>
+        Proactive Workspace
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <h1 className="main-title">Focus & Organize</h1>
+      <p className="subtitle">
+        A minimalist productivity workspace designed to keep your focus on what matters most.
+      </p>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      {/* Main Whiteboard Card */}
+      <div className="whiteboard-card">
+        {user ? (
+          /* Logged-in State */
+          <div className="profile-box">
+            {user.picture && <img src={user.picture} alt={user.name} className="avatar" />}
+            <div>
+              <div className="user-name">{user.name}</div>
+              <div className="user-email">{user.email}</div>
+            </div>
+            <button className="logout-btn" onClick={handleLogout}>
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          /* Clean Production Login State */
+          <div>
+            <div className="card-header">
+              <h2>Welcome Back</h2>
+              <p>Sign in to access your whiteboard workspace</p>
+            </div>
+
+            <div className="auth-actions">
+              <button className="google-btn" onClick={handleGoogleLogin}>
+                <svg className="google-icon" viewBox="0 0 24 24">
+                  <path
+                    fill="#4285F4"
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                  />
+                </svg>
+                Continue with Google
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 

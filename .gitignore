@@ -1,2 +1,16 @@
 *.bkp
 *.dtmp
+
+*.vscode
+*.claude
+*.codex
+*.cursor
+*.github/agents
+*.github/hooks
+*.github/skills
+
+.env
+
+# Python cached byte-code
+__pycache__/
+*.py[cod]
