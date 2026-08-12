@@ -5,6 +5,7 @@
   "outputDirectory": "app/dist",
   "functions": {
     "api/**/*.py": {
+      "runtime": "python3.11",
       "excludeFiles": "{tests/**,__tests__/**,**/*.test.py,**/test_*.py,app/node_modules/**,app/src/assets/**,software_design/**}"
     }
   },
