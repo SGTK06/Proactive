@@ -8,14 +8,17 @@
       "excludeFiles": "{tests/**,__tests__/**,**/*.test.py,**/test_*.py,app/node_modules/**,app/src/assets/**,software_design/**}"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
