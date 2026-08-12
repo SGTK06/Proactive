@@ -10,6 +10,8 @@
 *.github/skills
 
 .env
+.vercel/
+app/dist/
 
 # Python cached byte-code
 __pycache__/

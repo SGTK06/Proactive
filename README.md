@@ -20,4 +20,20 @@ Proactive factors work hours, commute time, and task priority and duration into 
 
 ## Product
 
-The core management and smart task rescheduling logic is handled by the web app running dynamic rescheduling. For seamless integration and user experience, the web app will manage Google Calendar and schedule reminders through Google Calendar
+The core management and smart task rescheduling logic is handled by the web app running dynamic rescheduling. For seamless integration and user experience, the web app will manage Google Calendar and schedule reminders through Google Calendar.
+
+## Deployment
+
+This repository is configured for Vercel with a Vite frontend in `app/` and a FastAPI serverless entrypoint in `api/index.py`.
+
+Set these environment variables in Vercel:
+
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `REDIRECT_URI`, for example `https://your-domain.vercel.app/api/auth/google/callback`
+- `FRONTEND_URL`, for example `https://your-domain.vercel.app`
+
+For local development:
+
+- Frontend: `cd app && npm install && npm run dev`
+- Backend: `pip install -r requirements.txt && python -m uvicorn backend.main:app --reload`

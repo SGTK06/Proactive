@@ -5,7 +5,7 @@ import json
 import httpx
 from urllib.parse import urlencode, quote
 
-from config import (
+from .config import (
     GOOGLE_AUTH_URL,
     GOOGLE_TOKEN_URL,
     GOOGLE_USERINFO_URL,
@@ -15,10 +15,8 @@ from config import (
     FRONTEND_URL,
 )
 
-# Initialize FastAPI app
-app = FastAPI(title="Proactive Auth API", description="Simple Google OAuth 2.0 Auth Server")
+app = FastAPI(title="Proactive API", description="Google OAuth server for Proactive")
 
-# Allow requests from Vite frontend dev server
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[FRONTEND_URL, "http://localhost:5173", "http://127.0.0.1:5173"],

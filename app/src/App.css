@@ -1,22 +1,11 @@
-/* Custom CSS for Minimalist Whiteboard Grid Aesthetic */
 :root {
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  /* Color Palette */
-  --bg-color: #faf9f6; /* Off-white canvas surface */
-  --grid-line: rgba(0, 0, 0, 0.05); /* Soft grid lines */
-  --grid-dot: rgba(0, 0, 0, 0.12); /* Subtle whiteboard dots */
+  --bg-color: #f8fafc;
   --text-main: #1e293b;
   --text-muted: #64748b;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  
-  --primary-accent: #2563eb;
-  --primary-hover: #1d4ed8;
-  --sticky-yellow: #fef08a;
-  --sticky-blue: #e0f2fe;
-  --sticky-pink: #fce7f3;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
   --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
 }
@@ -32,20 +21,13 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   min-height: 100vh;
-  /* Minimalist whiteboard grid background pattern */
-  background-image: 
-    radial-gradient(circle, var(--grid-dot) 1.2px, transparent 1.2px),
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 24px 24px, 120px 120px, 120px 120px;
-  background-position: 0 0, 0 0, 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
 }
 
-.whiteboard-container {
+.app-container {
   width: 100%;
   max-width: 1100px;
   min-height: 90vh;
@@ -54,10 +36,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
-/* Header & Brand Badge */
 .app-badge {
   display: inline-flex;
   align-items: center;
@@ -85,7 +65,7 @@ body {
   font-family: var(--font-heading);
   font-size: 2.75rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: #0f172a;
   text-align: center;
   margin-bottom: 0.75rem;
@@ -100,18 +80,14 @@ body {
   line-height: 1.5;
 }
 
-/* Whiteboard Card Frame */
-.whiteboard-card {
+.auth-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 2.5rem;
   width: 100%;
   max-width: 420px;
   box-shadow: var(--shadow-card);
-  position: relative;
-  z-index: 10;
-  backdrop-filter: blur(8px);
 }
 
 .card-header {
@@ -131,7 +107,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Login Action Buttons */
 .auth-actions {
   display: flex;
   flex-direction: column;
@@ -147,7 +122,7 @@ body {
   padding: 0.85rem 1.25rem;
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
@@ -155,7 +130,6 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: var(--shadow-sm);
-  text-decoration: none;
 }
 
 .google-btn:hover {
@@ -168,9 +142,9 @@ body {
 .google-icon {
   width: 20px;
   height: 20px;
+  flex: 0 0 auto;
 }
 
-/* User Logged In Dashboard View */
 .profile-box {
   display: flex;
   flex-direction: column;
@@ -217,41 +191,12 @@ body {
   opacity: 0.9;
 }
 
-/* Decorative Whiteboard Sticky Elements */
-.sticky-note {
-  position: absolute;
-  padding: 1rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.06);
-  transform: rotate(-3deg);
-  width: 140px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.sticky-note-1 {
-  top: 15%;
-  left: 10%;
-  background-color: var(--sticky-yellow);
-  color: #854d0e;
-  transform: rotate(-4deg);
-}
-
-.sticky-note-2 {
-  bottom: 18%;
-  right: 12%;
-  background-color: var(--sticky-blue);
-  color: #1e40af;
-  transform: rotate(3deg);
-}
-
 @media (max-width: 768px) {
-  .sticky-note {
-    display: none;
-  }
   .main-title {
     font-size: 2.1rem;
+  }
+
+  .auth-card {
+    padding: 2rem;
   }
 }

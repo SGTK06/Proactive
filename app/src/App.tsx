@@ -7,68 +7,65 @@ interface UserProfile {
   picture?: string
 }
 
+const getRedirectUser = (): UserProfile | null => {
+  const params = new URLSearchParams(window.location.search)
+  const userParam = params.get('user')
+
+  if (!userParam) {
+    return null
+  }
+
+  try {
+    return JSON.parse(userParam)
+  } catch (err) {
+    console.error('Failed to parse authenticated user profile:', err)
+    return null
+  }
+}
+
 function App() {
-  // Load user session from localStorage
   const [user, setUser] = useState<UserProfile | null>(() => {
+    const redirectUser = getRedirectUser()
+    if (redirectUser) {
+      return redirectUser
+    }
+
     const savedUser = localStorage.getItem('proactive_user_session')
     return savedUser ? JSON.parse(savedUser) : null
   })
 
-  // Parse Google OAuth redirect URL parameters on initial load
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const userParam = params.get('user')
 
-    if (userParam) {
-      try {
-        const parsedUser = JSON.parse(userParam)
-        setUser(parsedUser)
-        // Store authenticated session
-        localStorage.setItem('proactive_user_session', JSON.stringify(parsedUser))
-        // Clean URL query parameters
-        window.history.replaceState({}, document.title, window.location.pathname)
-      } catch (err) {
-        console.error('Failed to parse authenticated user profile:', err)
-      }
+    if (userParam && user) {
+      localStorage.setItem('proactive_user_session', JSON.stringify(user))
+      window.history.replaceState({}, document.title, window.location.pathname)
     }
-  }, [])
+  }, [user])
 
-  // Trigger Google OAuth 2.0 via FastAPI backend endpoint
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:8000/api/auth/google/login'
+    const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
+    window.location.href = `${apiBaseUrl}/api/auth/google/login`
   }
 
-  // Clear session on sign out
   const handleLogout = () => {
     localStorage.removeItem('proactive_user_session')
     setUser(null)
   }
 
   return (
-    <div className="whiteboard-container">
-      {/* Decorative Whiteboard Sticky Notes */}
-      <div className="sticky-note sticky-note-1">
-        📌 <strong>Today's Focus:</strong> Seamless productivity
-      </div>
-      <div className="sticky-note sticky-note-2">
-        💡 <strong>Proactive:</strong> Intelligent workspace
-      </div>
-
-      {/* Brand Header */}
+    <div className="app-container">
       <div className="app-badge">
         <span className="badge-dot"></span>
-        Proactive Workspace
+        Proactive
       </div>
 
-      <h1 className="main-title">Focus & Organize</h1>
-      <p className="subtitle">
-        A minimalist productivity workspace designed to keep your focus on what matters most.
-      </p>
+      <h1 className="main-title">Smart Task Scheduler</h1>
+      <p className="subtitle">Plan work around your calendar, priorities, and available time.</p>
 
-      {/* Main Whiteboard Card */}
-      <div className="whiteboard-card">
+      <div className="auth-card">
         {user ? (
-          /* Logged-in State */
           <div className="profile-box">
             {user.picture && <img src={user.picture} alt={user.name} className="avatar" />}
             <div>
@@ -80,16 +77,15 @@ function App() {
             </button>
           </div>
         ) : (
-          /* Clean Production Login State */
           <div>
             <div className="card-header">
-              <h2>Welcome Back</h2>
-              <p>Sign in to access your whiteboard workspace</p>
+              <h2>Sign in</h2>
+              <p>Use your Google account to continue.</p>
             </div>
 
             <div className="auth-actions">
               <button className="google-btn" onClick={handleGoogleLogin}>
-                <svg className="google-icon" viewBox="0 0 24 24">
+                <svg className="google-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill="#4285F4"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
