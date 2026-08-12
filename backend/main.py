@@ -26,8 +26,8 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def read_root():
+@app.get("/api/health")
+def health_check():
     """Health check endpoint."""
     return {"message": "Proactive Auth Backend API is running"}
 

@@ -16,3 +16,6 @@ app/dist/
 # Python cached byte-code
 __pycache__/
 *.py[cod]
+
+.vercel
+.env*

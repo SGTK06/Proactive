@@ -13,7 +13,7 @@ class AuthApiTests(unittest.TestCase):
         self.client = TestClient(main.app)
 
     def test_health_check(self):
-        response = self.client.get("/")
+        response = self.client.get("/api/health")
 
         self.assertEqual(response.json(), {"message": "Proactive Auth Backend API is running"})
 
