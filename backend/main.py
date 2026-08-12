@@ -46,12 +46,12 @@ def google_login():
             detail="GOOGLE_CLIENT_ID is not configured in backend environment (.env)."
         )
 
-    # Scopes for basic profile and email access
+    # Scopes for profile, email, and Google Calendar read-only access
     params = {
         "client_id": GOOGLE_CLIENT_ID,
         "redirect_uri": REDIRECT_URI,
         "response_type": "code",
-        "scope": "openid email profile",
+        "scope": "openid email profile https://www.googleapis.com/auth/calendar.readonly",
         "access_type": "offline",
         "prompt": "consent",
     }
@@ -94,8 +94,45 @@ async def google_callback(code: str = Query(...)):
             raise HTTPException(status_code=400, detail="Failed to fetch user info from Google.")
 
         user_profile = userinfo_response.json()
+        # Include access token so frontend can fetch Google Calendar events
+        user_profile["access_token"] = access_token
 
     # Convert dictionary to JSON string and URL quote it for frontend consumption
     json_str = json.dumps(user_profile)
     frontend_redirect_url = f"{FRONTEND_URL}?user={quote(json_str)}"
     return RedirectResponse(url=frontend_redirect_url)
+
+
+@app.get("/api/calendar/events")
+async def get_calendar_events(access_token: str = Query(...)):
+    """
+    Fetch the current week's schedule events from Google Calendar API.
+    Accepts access_token as query parameter.
+    """
+    if not access_token:
+        raise HTTPException(status_code=401, detail="Access token required")
+
+    from datetime import datetime, timezone, timedelta
+
+    # Calculate time bounds for current week (now to +7 days)
+    now = datetime.now(timezone.utc)
+    time_min = now.isoformat()
+    time_max = (now + timedelta(days=7)).isoformat()
+
+    calendar_url = "https://www.googleapis.com/calendar/v3/calendars/primary/events"
+    params = {
+        "timeMin": time_min,
+        "timeMax": time_max,
+        "singleEvents": "true",
+        "orderBy": "startTime",
+    }
+    headers = {"Authorization": f"Bearer {access_token}"}
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get(calendar_url, headers=headers, params=params)
+        if response.status_code != 200:
+            raise HTTPException(status_code=response.status_code, detail="Failed to fetch Google Calendar events.")
+        
+        data = response.json()
+        return data.get("items", [])
+

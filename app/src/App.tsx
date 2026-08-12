@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-
-interface UserProfile {
-  name: string
-  email: string
-  picture?: string
-}
+import type { UserProfile, CalendarEvent } from './types/calendar'
+import { UserHeader } from './components/UserHeader'
+import { ScheduleView } from './components/ScheduleView'
 
 function App() {
-  // Load user session from localStorage
+  // Load saved user session from localStorage
   const [user, setUser] = useState<UserProfile | null>(() => {
     const savedUser = localStorage.getItem('proactive_user_session')
     return savedUser ? JSON.parse(savedUser) : null
   })
+
+  const [events, setEvents] = useState<CalendarEvent[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
 
   // Parse Google OAuth redirect URL parameters on initial load
   useEffect(() => {
@@ -21,7 +21,7 @@ function App() {
 
     if (userParam) {
       try {
-        const parsedUser = JSON.parse(userParam)
+        const parsedUser: UserProfile = JSON.parse(userParam)
         setUser(parsedUser)
         // Store authenticated session
         localStorage.setItem('proactive_user_session', JSON.stringify(parsedUser))
@@ -33,6 +33,31 @@ function App() {
     }
   }, [])
 
+  // Automatically fetch Google Calendar events when user session is available
+  useEffect(() => {
+    if (user?.access_token) {
+      fetchGoogleCalendarEvents(user.access_token)
+    }
+  }, [user])
+
+  // Fetch current week's schedule events from FastAPI backend
+  const fetchGoogleCalendarEvents = async (accessToken: string) => {
+    setLoading(true)
+    try {
+      const res = await fetch(`http://localhost:8000/api/calendar/events?access_token=${encodeURIComponent(accessToken)}`)
+      if (res.ok) {
+        const data = await res.json()
+        setEvents(data)
+      } else {
+        console.warn('Failed to fetch events from backend proxy')
+      }
+    } catch (err) {
+      console.error('Error connecting to calendar endpoint:', err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   // Trigger Google OAuth 2.0 via FastAPI backend endpoint
   const handleGoogleLogin = () => {
     window.location.href = 'http://localhost:8000/api/auth/google/login'
@@ -42,6 +67,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('proactive_user_session')
     setUser(null)
+    setEvents([])
   }
 
   return (
@@ -66,18 +92,16 @@ function App() {
       </p>
 
       {/* Main Whiteboard Card */}
-      <div className="whiteboard-card">
+      <div className={`whiteboard-card ${user ? 'card-expanded' : ''}`}>
         {user ? (
-          /* Logged-in State */
-          <div className="profile-box">
-            {user.picture && <img src={user.picture} alt={user.name} className="avatar" />}
-            <div>
-              <div className="user-name">{user.name}</div>
-              <div className="user-email">{user.email}</div>
-            </div>
-            <button className="logout-btn" onClick={handleLogout}>
-              Sign Out
-            </button>
+          /* Logged-in Homepage View with Google Calendar Schedule */
+          <div className="workspace-view">
+            <UserHeader user={user} onLogout={handleLogout} />
+            <ScheduleView
+              events={events}
+              loading={loading}
+              onFetchEvents={() => user.access_token && fetchGoogleCalendarEvents(user.access_token)}
+            />
           </div>
         ) : (
           /* Clean Production Login State */
